@@ -1,10 +1,12 @@
 import javax.swing.*;
+import java.util.Scanner;
 
 /**
  * Libreria para sacar por dispositivos un mensaje y
  * pedir por consola distintos tipos de datos
- * @version 0.1
+ * @version 0.2
  * @author Damian Nogueiras
+ * @author Aitor Couñago Figueroa
  */
 public class EntradaSalida {
     /**
@@ -15,6 +17,16 @@ public class EntradaSalida {
      * opción de uso de utilizar una ventana en el escritorio para sacar un mensaje
      */
     public static final int SALIDA_WINDOW = 2;
+
+    /**
+     * opción para introducir un dato de tipo String
+     */
+    public static final int CADENA = 1;
+
+    /**
+     * opción para introducir un dato de tipo int
+     */
+    public static final int NUMERO = 2;
 
     private void EntradaSalida(){};
 
@@ -48,11 +60,38 @@ public class EntradaSalida {
     }
 
     /**
-     * TODO método para obtener distintos tipos de datos por consola
-     * @param comentario
-     * @return
+     * Método para obtener distintos tipos de datos por consola
+     * @param comentario mensaje para pedir la introducción de una entrada por consola
+     * @param tipo dato que se va a pedir<br>String: CADENA<br>int: NUMERO
+     * @return true si es correcto, si no false.
      */
-    public static String entrada(String comentario){
-        return "";
+    public static boolean entrada(String comentario, int tipo){
+        switch (tipo) {
+            case CADENA:
+                try {
+                    System.out.println(comentario);
+                    Scanner input = new Scanner(System.in);
+                    String cadena = input.nextLine();
+                    return true;
+                } catch(Exception ex) {
+                    System.out.println(ex.getMessage());
+                    return false;
+                }
+
+            case NUMERO:
+                try {
+                    System.out.println(comentario);
+                    Scanner input = new Scanner(System.in);
+                    int numero = input.nextInt();
+                    return true;
+                } catch(Exception ex) {
+                    System.out.println(ex.getMessage());
+                    return false;
+                }
+
+            default:
+                return false;
+        }
+
     }
 }
