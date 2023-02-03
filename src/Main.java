@@ -9,12 +9,11 @@ public class Main {
         isOK_ventana = EntradaSalida.salida("Hello world", EntradaSalida.SALIDA_WINDOW);
         if (!isOK_ventana) System.out.println("ERROR VENTANA");
 
-        boolean isOK_string = false;
-        boolean isOK_int = false;
+        String isOK_string = EntradaSalida.entrada("Mensaje para introducir un string");
+        System.out.println(isOK_string);
 
-        isOK_string = EntradaSalida.entrada("Mensaje para introducir un string", EntradaSalida.CADENA);
-        if (!isOK_string) System.out.println("ERROR STRING");
-        isOK_int = EntradaSalida.entrada("Mensaje para introducir un int", EntradaSalida.NUMERO);
-        if (!isOK_int) System.out.println("ERROR INT");
+        int isOK_int = EntradaSalida.numero("Mensaje para introducir un int");
+        if (isOK_int == -1) System.out.println("ERROR INT"); else System.out.println(isOK_int);
+
     }
 }

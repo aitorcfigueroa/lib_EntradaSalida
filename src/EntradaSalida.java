@@ -65,33 +65,33 @@ public class EntradaSalida {
      * @param tipo dato que se va a pedir<br>String: CADENA<br>int: NUMERO
      * @return true si es correcto, si no false.
      */
-    public static boolean entrada(String comentario, int tipo){
-        switch (tipo) {
-            case CADENA:
-                try {
-                    System.out.println(comentario);
-                    Scanner input = new Scanner(System.in);
-                    String cadena = input.nextLine();
-                    return true;
-                } catch(Exception ex) {
-                    System.out.println(ex.getMessage());
-                    return false;
-                }
+    public static String entrada(String comentario){
+        String respuesta = "";
 
-            case NUMERO:
-                try {
-                    System.out.println(comentario);
-                    Scanner input = new Scanner(System.in);
-                    int numero = input.nextInt();
-                    return true;
-                } catch(Exception ex) {
-                    System.out.println(ex.getMessage());
-                    return false;
-                }
-
-            default:
-                return false;
+        try {
+            System.out.println(comentario);
+            Scanner input = new Scanner(System.in);
+            respuesta = input.nextLine();
+        } catch(Exception ex) {
+            System.out.println(ex.getMessage());
+            respuesta = "Error al introducir el dato";
         }
 
+        return respuesta;
+    }
+
+    public static int numero(String comentario) {
+        int respuesta;
+
+        try {
+            System.out.println(comentario);
+            Scanner input = new Scanner(System.in);
+            respuesta = input.nextInt();
+        } catch(Exception ex) {
+            System.out.println(ex.getMessage());
+            respuesta = -1;
+        }
+
+        return respuesta;
     }
 }
