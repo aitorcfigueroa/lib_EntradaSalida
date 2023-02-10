@@ -10,10 +10,10 @@ public class Main {
         if (!isOK_ventana) System.out.println("ERROR VENTANA");
 
         String isOK_string = EntradaSalida.entrada("Mensaje para introducir un string");
-        System.out.println(isOK_string);
+        if(isOK_string == null) System.out.println("ERROR STRING"); else System.out.println(isOK_string);
 
-        int isOK_int = EntradaSalida.numero("Mensaje para introducir un int");
-        if (isOK_int == -1) System.out.println("ERROR INT"); else System.out.println(isOK_int);
+        Integer isOK_int = EntradaSalida.numero("Mensaje para introducir un int");
+        if (isOK_int == null) System.out.println("ERROR INT"); else System.out.println(isOK_int);
 
     }
 }

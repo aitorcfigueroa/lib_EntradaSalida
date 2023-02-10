@@ -66,32 +66,26 @@ public class EntradaSalida {
      * @return true si es correcto, si no false.
      */
     public static String entrada(String comentario){
-        String respuesta = "";
-
         try {
             System.out.println(comentario);
             Scanner input = new Scanner(System.in);
-            respuesta = input.nextLine();
+            String respuesta = input.nextLine();
+            return respuesta;
         } catch(Exception ex) {
             System.out.println(ex.getMessage());
-            respuesta = "Error al introducir el dato";
+            return null;
         }
-
-        return respuesta;
     }
 
-    public static int numero(String comentario) {
-        int respuesta;
-
+    public static Integer numero(String comentario) {
         try {
             System.out.println(comentario);
             Scanner input = new Scanner(System.in);
-            respuesta = input.nextInt();
+            int respuesta = input.nextInt();
+            return respuesta;
         } catch(Exception ex) {
             System.out.println(ex.getMessage());
-            respuesta = -1;
+            return null;
         }
-
-        return respuesta;
     }
 }
